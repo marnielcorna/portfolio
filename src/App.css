@@ -1,38 +1,61 @@
-.App {
-  text-align: center;
+/* Poor man's reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main-nav {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
+  justify-content: space-around;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.main-nav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.main-nav a:hover {
+  background: #ddd;
+  color: black;
 }
 
-.App-link {
-  color: #61dafb;
+
+.container {
+  font-size: 60px;
+	/* Reserve 100vh per slide (row) */
+	display: grid;
+	grid-auto-rows: 100vh;
+	grid-template-columns: 1fr;
+	
+	/* Center slide inside container row, instead of stretching it out */
+	place-items: center;
+	
+	/* Make it scroll*/
+	height: 100vh;
+	overflow-y: scroll;
+	
+	/* Make it snap */
+	scroll-snap-type: y mandatory;
+	scroll-behavior: smooth;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.item {
+	/* Snap to center */
+	scroll-snap-align: center;
+	
+	/* Always snap */
+	scroll-snap-stop: always;
+
+	background: lime;
 }
